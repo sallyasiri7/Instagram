@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B11804378836A640A2650CA7 /* Pods_Instgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C150B20C883C3979270C29 /* Pods_Instgram.framework */; };
 		EE4FC888275DE3920002ED89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC887275DE3920002ED89 /* AppDelegate.swift */; };
 		EE4FC88A275DE3920002ED89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC889275DE3920002ED89 /* SceneDelegate.swift */; };
 		EE4FC88C275DE3920002ED89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC88B275DE3920002ED89 /* ViewController.swift */; };
@@ -21,9 +22,19 @@
 		EE4FC8AC275E182C0002ED89 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC8AB275E182C0002ED89 /* ProfileController.swift */; };
 		EE70D534275F409000ADF018 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D533275F409000ADF018 /* FeedCell.swift */; };
 		EE70D536275F448F00ADF018 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D535275F448F00ADF018 /* Extensions.swift */; };
+		EE8060FD275FC580007B2A95 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8060FC275FC580007B2A95 /* LoginController.swift */; };
+		EE8060FF275FC5DD007B2A95 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8060FE275FC5DD007B2A95 /* RegistrationController.swift */; };
+		EE806101275FDE28007B2A95 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE806100275FDE28007B2A95 /* CustomTextField.swift */; };
+		EEA1A8A2276093B6007C8E2A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1A8A1276093B6007C8E2A /* AuthenticationViewModel.swift */; };
+		EEA1A8A42760CF43007C8E2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEA1A8A32760CF43007C8E2A /* GoogleService-Info.plist */; };
+		EEA1A8A82760F149007C8E2A /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1A8A72760F149007C8E2A /* ImageUploader.swift */; };
+		EEA1A8AA2760F174007C8E2A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1A8A92760F174007C8E2A /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		603842DBC8D1961474377733 /* Pods-Instgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instgram.debug.xcconfig"; path = "Target Support Files/Pods-Instgram/Pods-Instgram.debug.xcconfig"; sourceTree = "<group>"; };
+		8C043A53434C569AB07E22FF /* Pods-Instgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instgram.release.xcconfig"; path = "Target Support Files/Pods-Instgram/Pods-Instgram.release.xcconfig"; sourceTree = "<group>"; };
+		C7C150B20C883C3979270C29 /* Pods_Instgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE4FC884275DE3920002ED89 /* Instgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE4FC887275DE3920002ED89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE4FC889275DE3920002ED89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +51,13 @@
 		EE4FC8AB275E182C0002ED89 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		EE70D533275F409000ADF018 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		EE70D535275F448F00ADF018 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EE8060FC275FC580007B2A95 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		EE8060FE275FC5DD007B2A95 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		EE806100275FDE28007B2A95 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		EEA1A8A1276093B6007C8E2A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		EEA1A8A32760CF43007C8E2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EEA1A8A72760F149007C8E2A /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		EEA1A8A92760F174007C8E2A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +65,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11804378836A640A2650CA7 /* Pods_Instgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F90845546C0AA1D49D37DCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				603842DBC8D1961474377733 /* Pods-Instgram.debug.xcconfig */,
+				8C043A53434C569AB07E22FF /* Pods-Instgram.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EE4FC87B275DE3920002ED89 = {
 			isa = PBXGroup;
 			children = (
 				EE4FC886275DE3920002ED89 /* Instgram */,
 				EE4FC885275DE3920002ED89 /* Products */,
+				7F90845546C0AA1D49D37DCC /* Pods */,
+				F9E085EDDF8B217FE1158D70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +114,7 @@
 				EE4FC88D275DE3920002ED89 /* Main.storyboard */,
 				EE4FC890275DE3960002ED89 /* Assets.xcassets */,
 				EE4FC892275DE3960002ED89 /* LaunchScreen.storyboard */,
+				EEA1A8A32760CF43007C8E2A /* GoogleService-Info.plist */,
 				EE4FC895275DE3960002ED89 /* Info.plist */,
 			);
 			path = Instgram;
@@ -100,6 +131,8 @@
 		EE4FC89C275DE3CF0002ED89 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EEA1A8A72760F149007C8E2A /* ImageUploader.swift */,
+				EEA1A8A92760F174007C8E2A /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -107,6 +140,7 @@
 		EE4FC89D275DE3DB0002ED89 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EE8060FB275FC489007B2A95 /* Antifkishan */,
 				EE4FC8A1275DE6270002ED89 /* MainTabController.swift */,
 				EE4FC8A3275DEAF60002ED89 /* FeedController.swift */,
 				EE4FC8A5275E16F30002ED89 /* SearchControler.swift */,
@@ -120,6 +154,7 @@
 		EE4FC89E275DE3E00002ED89 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EEA1A8A1276093B6007C8E2A /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				EE70D533275F409000ADF018 /* FeedCell.swift */,
+				EE806100275FDE28007B2A95 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +175,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EE8060FB275FC489007B2A95 /* Antifkishan */ = {
+			isa = PBXGroup;
+			children = (
+				EE8060FC275FC580007B2A95 /* LoginController.swift */,
+				EE8060FE275FC5DD007B2A95 /* RegistrationController.swift */,
+			);
+			path = Antifkishan;
+			sourceTree = "<group>";
+		};
+		F9E085EDDF8B217FE1158D70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7C150B20C883C3979270C29 /* Pods_Instgram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE4FC898275DE3960002ED89 /* Build configuration list for PBXNativeTarget "Instgram" */;
 			buildPhases = (
+				BF08F664126E94F617710AA0 /* [CP] Check Pods Manifest.lock */,
 				EE4FC880275DE3920002ED89 /* Sources */,
 				EE4FC881275DE3920002ED89 /* Frameworks */,
 				EE4FC882275DE3920002ED89 /* Resources */,
+				36381D6A116B2D61D6E7C42F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE4FC894275DE3960002ED89 /* LaunchScreen.storyboard in Resources */,
+				EEA1A8A42760CF43007C8E2A /* GoogleService-Info.plist in Resources */,
 				EE4FC891275DE3960002ED89 /* Assets.xcassets in Resources */,
 				EE4FC88F275DE3920002ED89 /* Main.storyboard in Resources */,
 			);
@@ -205,22 +261,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36381D6A116B2D61D6E7C42F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instgram/Pods-Instgram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instgram/Pods-Instgram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Instgram/Pods-Instgram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF08F664126E94F617710AA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Instgram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE4FC880275DE3920002ED89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE806101275FDE28007B2A95 /* CustomTextField.swift in Sources */,
 				EE4FC88C275DE3920002ED89 /* ViewController.swift in Sources */,
+				EE8060FD275FC580007B2A95 /* LoginController.swift in Sources */,
 				EE70D536275F448F00ADF018 /* Extensions.swift in Sources */,
 				EE70D534275F409000ADF018 /* FeedCell.swift in Sources */,
 				EE4FC8A8275E17450002ED89 /* ImageSelectorController.swift in Sources */,
+				EEA1A8A2276093B6007C8E2A /* AuthenticationViewModel.swift in Sources */,
 				EE4FC8AA275E17DE0002ED89 /* NotificationsController.swift in Sources */,
 				EE4FC8A6275E16F30002ED89 /* SearchControler.swift in Sources */,
 				EE4FC888275DE3920002ED89 /* AppDelegate.swift in Sources */,
 				EE4FC8AC275E182C0002ED89 /* ProfileController.swift in Sources */,
 				EE4FC8A4275DEAF60002ED89 /* FeedController.swift in Sources */,
 				EE4FC8A2275DE6270002ED89 /* MainTabController.swift in Sources */,
+				EEA1A8A82760F149007C8E2A /* ImageUploader.swift in Sources */,
+				EEA1A8AA2760F174007C8E2A /* AuthService.swift in Sources */,
 				EE4FC88A275DE3920002ED89 /* SceneDelegate.swift in Sources */,
+				EE8060FF275FC5DD007B2A95 /* RegistrationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +468,7 @@
 		};
 		EE4FC899275DE3960002ED89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 603842DBC8D1961474377733 /* Pods-Instgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -391,6 +496,7 @@
 		};
 		EE4FC89A275DE3960002ED89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C043A53434C569AB07E22FF /* Pods-Instgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

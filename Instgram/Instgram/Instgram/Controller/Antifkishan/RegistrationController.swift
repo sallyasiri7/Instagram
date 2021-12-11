@@ -12,12 +12,14 @@ class RegistrationController: UIViewController {
     //MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
+    private var profileImag: UIImage?
+    weak var delegate: AuthenticationDelegate?
     
     private let plushPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
         button.tintColor = .white
-    //نضيف صوره ع تسجيل الدخول
+        //نضيف صوره ع تسجيل الدخول
         button.addTarget(self, action: #selector(handleprofilephotoSelct), for: .touchUpInside)
         return button
     }()
@@ -30,7 +32,7 @@ class RegistrationController: UIViewController {
     
     private let passwordTextField: UITextField = {
         let tf = CustomTextField(placeholder: "password")
-    
+        
         tf.isSecureTextEntry = true
         return tf
     }()
@@ -42,10 +44,11 @@ class RegistrationController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemPurple
+        button.backgroundColor = .systemPurple.withAlphaComponent(0.5)
         button.layer.cornerRadius = 5
         button.setHeight(height: 50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -67,6 +70,31 @@ class RegistrationController: UIViewController {
     
     //MARK: - Actions
     
+    //فايربيس
+   
+    @objc func handleSignUp() {
+        
+        guard let email = emailTextField.text else { return }
+        guard let passwird = passwordTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        guard let username = usernameTextField.text?.lowercased() else { return }
+        guard let profileImag = self.profileImag else { return }
+        
+        let credentials = AuthCredentials(email: email, password: passwird,
+                                          fullname: fullname, username: username,
+                                          profileImage: profileImag)
+        
+        AuthService.registerUser(withCredential: credentials) { error in
+            
+            if let error = error {
+                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                return
+            }
+            
+            self.delegate?.authenticationDidComplete()
+        }
+    }
+    
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
         
@@ -86,7 +114,7 @@ class RegistrationController: UIViewController {
     }
     
     @objc func handleprofilephotoSelct() {
-      let picker = UIImagePickerController()
+        let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         
@@ -97,7 +125,7 @@ class RegistrationController: UIViewController {
     //MARK: - Helpers
     
     func configureUI() {
-     configureGradientLayer()
+        configureGradientLayer()
         
         view.addSubview(plushPhotoButton)
         plushPhotoButton.centerX(inView: view)
@@ -121,9 +149,9 @@ class RegistrationController: UIViewController {
     func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-      fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-
+        
         
     }
 }
@@ -142,14 +170,16 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
-            plushPhotoButton.layer.cornerRadius = plushPhotoButton.frame.width / 2
-            plushPhotoButton.layer.masksToBounds = true
-            plushPhotoButton.layer.borderColor = UIColor.white.cgColor
-            plushPhotoButton.layer.borderWidth = 2
-            plushPhotoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-            self.dismiss(animated: true, completion: nil)
-        }
+        profileImag = selectedImage
+        
+        plushPhotoButton.layer.cornerRadius = plushPhotoButton.frame.width / 2
+        plushPhotoButton.layer.masksToBounds = true
+        plushPhotoButton.layer.borderColor = UIColor.white.cgColor
+        plushPhotoButton.layer.borderWidth = 2
+        plushPhotoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        self.dismiss(animated: true, completion: nil)
     }
+}
 
 
 

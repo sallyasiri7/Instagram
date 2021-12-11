@@ -7,15 +7,21 @@
 
 import UIKit
 
+protocol AuthenticationDelegate: class {
+    func authenticationDidComplete()
+}
+
+
 class LoginController: UIViewController {
     
     
     //MARK: - Properties
     
     private var viewModel = LoginViewMpdel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage : UIImageView = {
-   let iv = UIImageView (image: UIImage(named: "Instagram_logo_white"))
+        let iv = UIImageView (image: UIImage(named: "Instagram_logo_white"))
         iv.contentMode = .scaleAspectFill
         return iv
     }()
@@ -27,7 +33,7 @@ class LoginController: UIViewController {
     
     private let passwordTextField: UITextField = {
         let tf = CustomTextField(placeholder: "password")
-    
+        
         tf.isSecureTextEntry = true
         return tf
     }()
@@ -41,7 +47,7 @@ class LoginController: UIViewController {
         button.setHeight(height: 50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.isEnabled = false
-        
+        button.addTarget(self, action: #selector(handeLogin), for: .touchUpInside)
         return button
     }()
     
@@ -68,14 +74,30 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNotificationObservers()
-
+        
     }
     
     //MARK: - Actions
     
+    @objc func handeLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { (result, error) in
+            
+            if let error = error {
+                print("DEBUG: Failed to log user in \(error.localizedDescription)")
+                return
+            }
+            self.delegate?.authenticationDidComplete()
+          
+        }
+        
+    }
+    
     @objc func handleShowSignUp() {
-      let controller = RegistrationController()
-       navigationController?.pushViewController(controller, animated: true)
+        let controller = RegistrationController()
+        controller.delegate = delegate
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func textDidChange(sender: UITextField) {
@@ -92,7 +114,7 @@ class LoginController: UIViewController {
     //اللوقو حق الانستقرام
     
     func configureUI() {
-       configureGradientLayer()
+        configureGradientLayer()
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
         
@@ -129,6 +151,6 @@ extension LoginController: FormViewModel {
         loginButton.backgroundColor = viewModel.buttonBackgroundColor
         loginButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
         loginButton.isEnabled = viewModel.formIsValid
-    
+        
     }
 }

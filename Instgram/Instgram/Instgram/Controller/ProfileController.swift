@@ -64,9 +64,7 @@ class ProfileController: UICollectionViewController {
     
     func fetchPosts() {
         PostService.fetchPosts(forUser: user.uid) { posts in
-             print("------\(self.user.uid)---------")
-             print("\(posts)")
-             print("---------------")
+           
             self.posts = posts
             self.collectionView.reloadData()
             

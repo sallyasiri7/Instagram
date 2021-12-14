@@ -51,16 +51,16 @@ struct PostService {
         
         query.getDocuments { (snapshot, error) in
             if error != nil {
-                print(error?.localizedDescription)
+             //   print(error?.localizedDescription)
                 return
             }
             
             guard let documents = snapshot?.documents else { return }
-             print("documents \(documents.count)")
+           //  print("documents \(documents.count)")
             
             var posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
             
-             print("posts \(posts.count)")
+           //  print("posts \(posts.count)")
 
             posts.sort { (post1, post2) -> Bool in
                 return post1.timestamp.seconds > post2.timestamp.seconds

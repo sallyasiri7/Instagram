@@ -29,6 +29,9 @@
 		EE621D222763A7840060196B /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE621D212763A7840060196B /* UserCellViewModel.swift */; };
 		EE70D534275F409000ADF018 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D533275F409000ADF018 /* FeedCell.swift */; };
 		EE70D536275F448F00ADF018 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D535275F448F00ADF018 /* Extensions.swift */; };
+		EE7456FD276892B300B0CEF3 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7456FC276892B300B0CEF3 /* CommentService.swift */; };
+		EE7456FF2768B08F00B0CEF3 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7456FE2768B08F00B0CEF3 /* Comment.swift */; };
+		EE7457012768BC5F00B0CEF3 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7457002768BC5F00B0CEF3 /* CommentViewModel.swift */; };
 		EE76DD772765CC2900DA481A /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76DD762765CC2900DA481A /* PostService.swift */; };
 		EE76DD792765E50500DA481A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76DD782765E50500DA481A /* Post.swift */; };
 		EE76DD7B2765EDD200DA481A /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76DD7A2765EDD200DA481A /* PostViewModel.swift */; };
@@ -75,6 +78,9 @@
 		EE70D533275F409000ADF018 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		EE70D535275F448F00ADF018 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EE73D5CF2762114500D299AF /* Instgram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Instgram.entitlements; sourceTree = "<group>"; };
+		EE7456FC276892B300B0CEF3 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		EE7456FE2768B08F00B0CEF3 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		EE7457002768BC5F00B0CEF3 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		EE76DD762765CC2900DA481A /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		EE76DD782765E50500DA481A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		EE76DD7A2765EDD200DA481A /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				EEA1A8A92760F174007C8E2A /* AuthService.swift */,
 				EE7A6D7B27632BDA00B1D714 /* UserService.swift */,
 				EE76DD762765CC2900DA481A /* PostService.swift */,
+				EE7456FC276892B300B0CEF3 /* CommentService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 				EE7A6D8127633C4100B1D714 /* PrfileHeaderViewModel.swift */,
 				EE621D212763A7840060196B /* UserCellViewModel.swift */,
 				EE76DD7A2765EDD200DA481A /* PostViewModel.swift */,
+				EE7457002768BC5F00B0CEF3 /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,6 +227,7 @@
 			children = (
 				EE7A6D7F2763342800B1D714 /* User.swift */,
 				EE76DD782765E50500DA481A /* Post.swift */,
+				EE7456FE2768B08F00B0CEF3 /* Comment.swift */,
 				EE5CDB20276265BB0002F4EE /* Profile */,
 			);
 			path = Model;
@@ -366,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE7457012768BC5F00B0CEF3 /* CommentViewModel.swift in Sources */,
 				EE76DD7B2765EDD200DA481A /* PostViewModel.swift in Sources */,
 				EE806101275FDE28007B2A95 /* CustomTextField.swift in Sources */,
 				EE7A6D8227633C4100B1D714 /* PrfileHeaderViewModel.swift in Sources */,
@@ -375,6 +385,8 @@
 				EE4FC88C275DE3920002ED89 /* ViewController.swift in Sources */,
 				EE8060FD275FC580007B2A95 /* LoginController.swift in Sources */,
 				EE70D536275F448F00ADF018 /* Extensions.swift in Sources */,
+				EE7456FD276892B300B0CEF3 /* CommentService.swift in Sources */,
+				EE7456FF2768B08F00B0CEF3 /* Comment.swift in Sources */,
 				EE70D534275F409000ADF018 /* FeedCell.swift in Sources */,
 				EE7A6D7C27632BDA00B1D714 /* UserService.swift in Sources */,
 				EE621D20276375FC0060196B /* UserCell.swift in Sources */,

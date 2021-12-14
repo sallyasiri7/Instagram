@@ -71,7 +71,7 @@ class RegistrationController: UIViewController {
     //MARK: - Actions
     
     //فايربيس
-   
+    
     @objc func handleSignUp() {
         
         guard let email = emailTextField.text else { return }

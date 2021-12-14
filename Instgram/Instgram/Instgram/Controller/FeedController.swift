@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-private let reuseldentifier = "cell"
+private let reuseldentifier = "Cell"
 
 class FeedController: UICollectionViewController {
     
@@ -34,17 +34,17 @@ class FeedController: UICollectionViewController {
     }
     
     @objc func handleLogout() {
-            do {
-                try Auth.auth().signOut()
-                let controller = LoginController()
-                controller.delegate = self.tabBarController as? MainTabController
-                  let nav = UINavigationController(rootViewController: controller)
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
-            } catch {
-                print("DEBUG Failed to sign out")
-            }
+        do {
+            try Auth.auth().signOut()
+            let controller = LoginController()
+            controller.delegate = self.tabBarController as? MainTabController
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
+        } catch {
+            print("DEBUG Failed to sign out")
         }
+    }
     
     //MARK: - API
     
@@ -69,17 +69,17 @@ class FeedController: UICollectionViewController {
         if post == nil {
             
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: #selector(handleLogout))
+                                                               style: .plain,
+                                                               target: self,
+                                                               action: #selector(handleLogout))
         }
-      
+        
         navigationItem.title = "Feed"
         
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         collectionView.refreshControl = refresher
-                                                            
+        
         
     }
 }
@@ -96,14 +96,14 @@ extension FeedController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseldentifier, for: indexPath) as! FeedCell
-       cell.delegate = self
+        cell.delegate = self
         
         if let post = post {
             cell.viewModel = PostViewModel(post: post)
         } else {
             cell.viewModel = PostViewModel(post: posts[indexPath.row])
-       }
-    
+        }
+        
         return cell
     }
     
@@ -126,7 +126,18 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 
 extension FeedController: FeedCellDelegate {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
-        let controller = CommentController(collectionViewLayout: UICollectionViewLayout())
+        let controller = CommentController(post: post)
         navigationController?.pushViewController(controller, animated: true)
+    }
+    func cell(_ cell: FeedCell, didLike post: Post) {
+        
+        cell.viewModel?.post.didLike.toggle()
+        
+        if post.didLike{
+            print("DEBUG: Unlike post here..")
+        }else {
+            print("DEBUG: like post here..")
+            
+        }
     }
 }

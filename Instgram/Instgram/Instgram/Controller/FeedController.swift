@@ -14,13 +14,24 @@ class FeedController: UICollectionViewController {
     
     //MARK: - Lifecycle
     
+    private var posts = [Post]()
+    
+    var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchPosts()
         
     }
     
     //MARK: - Actions
+    //تحديث الصور
+    
+    @objc func handleRefresh() {
+        posts.removeAll()
+        fetchPosts()
+    }
     
     @objc func handleLogout() {
             do {
@@ -35,17 +46,39 @@ class FeedController: UICollectionViewController {
             }
         }
     
+    //MARK: - API
+    
+    func fetchPosts() {
+        PostService.fetchPosts { posts in
+            self.posts = posts
+            self.collectionView.refreshControl?.endRefreshing()
+            self.collectionView.reloadData()
+        }
+    }
+    
     //MARK: - Helpers
     
     func configureUI() {
+        guard post == nil else { return
+            
+        }
         collectionView.backgroundColor = .white
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseldentifier)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(handleLogout))
+        
+        if post == nil {
+            
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(handleLogout))
+        }
+      
         navigationItem.title = "Feed"
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
                                                             
         
     }
@@ -55,11 +88,22 @@ class FeedController: UICollectionViewController {
 
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return post == nil ? posts.count : 1
     }
+    
+    //صور البروفايل
+    
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseldentifier, for: indexPath) as! FeedCell
+       cell.delegate = self
+        
+        if let post = post {
+            cell.viewModel = PostViewModel(post: post)
+        } else {
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+       }
+    
         return cell
     }
     
@@ -75,5 +119,14 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
         height += 60
         
         return CGSize(width: width, height:height)
+    }
+}
+
+//MARK: - FeedCellDelegate
+
+extension FeedController: FeedCellDelegate {
+    func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
+        let controller = CommentController(collectionViewLayout: UICollectionViewLayout())
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

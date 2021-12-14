@@ -16,6 +16,7 @@ class ProfileController: UICollectionViewController {
     //MARK: - Properties
     
     private var user: User
+    private var posts = [Post]()
     
     //MARK: - Lifecycle
     
@@ -34,6 +35,8 @@ class ProfileController: UICollectionViewController {
         configureCollectionView()
         checkIfUserIsFollowed()
         fetchUserStats()
+        fetchPosts()
+        
         
     }
     
@@ -44,7 +47,7 @@ class ProfileController: UICollectionViewController {
             self.user.isFollowed = isFollowed
             self.collectionView.reloadData()
             
-           
+            
             
         }
     }
@@ -54,7 +57,19 @@ class ProfileController: UICollectionViewController {
             self.user.stats = stats
             self.collectionView.reloadData()
             
-            print("DEBUG: Stats \(stats)")
+            
+        }
+    }
+    //يطلع الصور الي بصفحتي
+    
+    func fetchPosts() {
+        PostService.fetchPosts(forUser: user.uid) { posts in
+             print("------\(self.user.uid)---------")
+             print("\(posts)")
+             print("---------------")
+            self.posts = posts
+            self.collectionView.reloadData()
+            
         }
     }
     
@@ -81,11 +96,12 @@ extension ProfileController {
     //صور الي داخل البروفايل
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return posts.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdontifier, for: indexPath) as! ProfileCell
+        cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
     
@@ -107,6 +123,11 @@ extension ProfileController {
 //MARKT: - UICollectionViewDelegate
 
 extension ProfileController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let  controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.post = posts[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
 }
 

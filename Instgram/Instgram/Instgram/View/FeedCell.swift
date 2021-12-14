@@ -7,16 +7,27 @@
 
 import UIKit
 
+protocol FeedCellDelegate: class {
+    func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
+}
+
 class FeedCell: UICollectionViewCell {
     
     // MARK: - Properties // هنا اصلح البروفايل لصوره الصغيره
+    
+    
+    var viewModel: PostViewModel? {
+        didSet { configure() }
+    }
+    
+    weak var delegate: FeedCellDelegate?
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = UIImage(named:"venom-7")
+        iv.backgroundColor = .lightGray
         return iv
     }()
     
@@ -25,7 +36,6 @@ class FeedCell: UICollectionViewCell {
     private lazy var usernameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("sally", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUsername), for: .touchUpInside)
         return button
@@ -50,10 +60,11 @@ class FeedCell: UICollectionViewCell {
         return button
     }()
     
-    private lazy var commntButton: UIButton = {
+    private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "comment"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(didTapComments), for: .touchUpInside)
         return button
     }()
     
@@ -66,7 +77,6 @@ class FeedCell: UICollectionViewCell {
     
     private let likesLabel: UILabel = {
         let label = UILabel()
-        label.text = " 1 like"
         label.font = UIFont.boldSystemFont(ofSize: 13)
         return label
         
@@ -74,7 +84,6 @@ class FeedCell: UICollectionViewCell {
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = "some test caption for now.."
         label.font = UIFont.systemFont(ofSize: 14)
         return label
         
@@ -137,10 +146,29 @@ class FeedCell: UICollectionViewCell {
         print("DEBUG: did tap username")
     }
     
+    @objc func didTapComments() {
+        guard let viewModel = viewModel else { return }
+
+        delegate?.cell(self, wantsToShowCommentsFor: viewModel.post)
+    }
+    
     //MARK: - Helpers
     
+    func configure() {
+        guard let viewModel = viewModel else { return }
+    
+        captionLabel.text = viewModel.caption
+        postImageView.sd_setImage(with: viewModel.imageUrl)
+        
+        profileImageView.sd_setImage(with:viewModel.userProfileImageUrl)
+        usernameButton.setTitle(viewModel.username, for: .normal)
+        
+        likesLabel.text = viewModel.likesLabelText
+        
+    }
+    
     func configureActionButtons() {
-       let stackView = UIStackView(arrangedSubviews: [likeButton, commntButton, shareButton])
+       let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         

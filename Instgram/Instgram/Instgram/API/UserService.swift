@@ -34,7 +34,7 @@ struct UserService {
     
     
     //هنا اقدر اسوي له فولو وان فولو
-    //مربوط بفاير بيس 
+    //مربوط بفاير بيس
     
     static func follow(uid: String,completion: @escaping(FirestoreCompletion)) {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
@@ -67,14 +67,23 @@ struct UserService {
     static func fetchUserStats(uid: String, completion: @escaping(UserStats) -> Void) {
         COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments {
             (snapshot, _) in
+            
             let followers = snapshot?.documents.count ?? 0
             
             COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments {
                 (snapshot, _) in
+                
                 let following = snapshot?.documents.count ?? 0
-                completion(UserStats(followers: followers, folloeing: following))
-            
+                
+                COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { (snapshot, _) in
+                    
+                    
+                    let posts = snapshot?.documents.count ?? 0
+                    completion(UserStats(followers: followers, folloeing: following, posts: posts))
+                }
+                
+                
+            }
         }
     }
-}
 }

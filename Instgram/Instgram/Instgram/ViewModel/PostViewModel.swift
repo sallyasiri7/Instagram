@@ -5,34 +5,31 @@
 //  Created by sally asiri on 08/05/1443 AH.
 //
 
-import Foundation
+
+import UIKit
 
 
 struct PostViewModel {
     
     var post: Post
     
-    var imageUrl: URL? {
-        return URL(string: post.imageUrl)
+    var imageUrl: URL? { return URL(string: post.imageUrl) }
+    
+    var userProfileImageUrl: URL? { return URL(string: post.ownerImageUrl) }
+    
+    var username: String { return post.ownerUsername }
+    
+    var caption: String { return post.caption }
+    
+    var likes: Int { return post.likes }
+    
+    var likeButtonTintColor: UIColor {
+        return post.didLike ? .red : .black
     }
     
-    var userProfileImageUrl: URL? {
-        return URL(string: post.ownerImageUrl)
-    }
-    
-    var username: String {
-        return post.ownerUsername
-    }
-    
-    
-    
-    var caption: String {
-        return post.caption
-        
-    }
-    
-    var likes: Int {
-        return post.likes
+    var likeButtonImage: UIImage? {
+        let imageName = post.didLike ? "like_selected" : "like_unselected"
+        return UIImage(named: imageName)
     }
     
     var likesLabelText: String {

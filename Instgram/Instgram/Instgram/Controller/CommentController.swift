@@ -67,7 +67,7 @@ class CommentController: UICollectionViewController {
         }
     }
     
-//MARK: - Helpers
+    //MARK: - Helpers
     
     func configureCollectionView() {
         navigationItem.title = "Comments"
@@ -141,8 +141,8 @@ extension CommentController: CommentInputAccesoryViewDelegate {
         }
     }
 }
-  
-    
+
+
 
 
 

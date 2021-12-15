@@ -24,7 +24,10 @@
 		EE5CDB1F276265A90002F4EE /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5CDB1E276265A90002F4EE /* ProfileHeader.swift */; };
 		EE5DB562276737C400F8A740 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DB561276737C400F8A740 /* CommentController.swift */; };
 		EE5DB56427673CA300F8A740 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DB56327673CA300F8A740 /* CommentCell.swift */; };
+		EE6014FB2769F8B2008A5073 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6014FA2769F8B2008A5073 /* Notification.swift */; };
+		EE6014FD2769FDFC008A5073 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6014FC2769FDFC008A5073 /* NotificationService.swift */; };
 		EE60809027675C260047D107 /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60808F27675C260047D107 /* CommentInputAccesoryView.swift */; };
+		EE609CE52769DA46004A16B6 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE609CE42769DA46004A16B6 /* NotificationCell.swift */; };
 		EE621D20276375FC0060196B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE621D1F276375FC0060196B /* UserCell.swift */; };
 		EE621D222763A7840060196B /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE621D212763A7840060196B /* UserCellViewModel.swift */; };
 		EE70D534275F409000ADF018 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE70D533275F409000ADF018 /* FeedCell.swift */; };
@@ -72,7 +75,10 @@
 		EE5CDB1E276265A90002F4EE /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		EE5DB561276737C400F8A740 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		EE5DB56327673CA300F8A740 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		EE6014FA2769F8B2008A5073 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		EE6014FC2769FDFC008A5073 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		EE60808F27675C260047D107 /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
+		EE609CE42769DA46004A16B6 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		EE621D1F276375FC0060196B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		EE621D212763A7840060196B /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		EE70D533275F409000ADF018 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 				EE7A6D7B27632BDA00B1D714 /* UserService.swift */,
 				EE76DD762765CC2900DA481A /* PostService.swift */,
 				EE7456FC276892B300B0CEF3 /* CommentService.swift */,
+				EE6014FC2769FDFC008A5073 /* NotificationService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 				EE621D1F276375FC0060196B /* UserCell.swift */,
 				EE5DB56327673CA300F8A740 /* CommentCell.swift */,
 				EE60808F27675C260047D107 /* CommentInputAccesoryView.swift */,
+				EE609CE42769DA46004A16B6 /* NotificationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 				EE76DD782765E50500DA481A /* Post.swift */,
 				EE7456FE2768B08F00B0CEF3 /* Comment.swift */,
 				EE5CDB20276265BB0002F4EE /* Profile */,
+				EE6014FA2769F8B2008A5073 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 				EE70D536275F448F00ADF018 /* Extensions.swift in Sources */,
 				EE7456FD276892B300B0CEF3 /* CommentService.swift in Sources */,
 				EE7456FF2768B08F00B0CEF3 /* Comment.swift in Sources */,
+				EE6014FB2769F8B2008A5073 /* Notification.swift in Sources */,
 				EE70D534275F409000ADF018 /* FeedCell.swift in Sources */,
 				EE7A6D7C27632BDA00B1D714 /* UserService.swift in Sources */,
 				EE621D20276375FC0060196B /* UserCell.swift in Sources */,
@@ -402,6 +412,7 @@
 				EE4FC8AC275E182C0002ED89 /* ProfileController.swift in Sources */,
 				EE4FC8A4275DEAF60002ED89 /* FeedController.swift in Sources */,
 				EE4FC8A2275DE6270002ED89 /* MainTabController.swift in Sources */,
+				EE6014FD2769FDFC008A5073 /* NotificationService.swift in Sources */,
 				EE76DD792765E50500DA481A /* Post.swift in Sources */,
 				EEA1A8A82760F149007C8E2A /* ImageUploader.swift in Sources */,
 				EE60809027675C260047D107 /* CommentInputAccesoryView.swift in Sources */,
@@ -409,6 +420,7 @@
 				EEA1A8AA2760F174007C8E2A /* AuthService.swift in Sources */,
 				EE5CDB1D2762657C0002F4EE /* ProfileCell.swift in Sources */,
 				EE4FC88A275DE3920002ED89 /* SceneDelegate.swift in Sources */,
+				EE609CE52769DA46004A16B6 /* NotificationCell.swift in Sources */,
 				EE8060FF275FC5DD007B2A95 /* RegistrationController.swift in Sources */,
 				EE5DB56427673CA300F8A740 /* CommentCell.swift in Sources */,
 			);

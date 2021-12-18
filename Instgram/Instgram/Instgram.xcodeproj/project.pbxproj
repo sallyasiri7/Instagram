@@ -24,6 +24,7 @@
 		EE5CDB1F276265A90002F4EE /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5CDB1E276265A90002F4EE /* ProfileHeader.swift */; };
 		EE5DB562276737C400F8A740 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DB561276737C400F8A740 /* CommentController.swift */; };
 		EE5DB56427673CA300F8A740 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5DB56327673CA300F8A740 /* CommentCell.swift */; };
+		EE5FD896276B52D400BC5D5B /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5FD895276B52D400BC5D5B /* NotificationViewModel.swift */; };
 		EE6014FB2769F8B2008A5073 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6014FA2769F8B2008A5073 /* Notification.swift */; };
 		EE6014FD2769FDFC008A5073 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6014FC2769FDFC008A5073 /* NotificationService.swift */; };
 		EE60809027675C260047D107 /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60808F27675C260047D107 /* CommentInputAccesoryView.swift */; };
@@ -75,6 +76,7 @@
 		EE5CDB1E276265A90002F4EE /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		EE5DB561276737C400F8A740 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		EE5DB56327673CA300F8A740 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		EE5FD895276B52D400BC5D5B /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		EE6014FA2769F8B2008A5073 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		EE6014FC2769FDFC008A5073 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		EE60808F27675C260047D107 /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				EE621D212763A7840060196B /* UserCellViewModel.swift */,
 				EE76DD7A2765EDD200DA481A /* PostViewModel.swift */,
 				EE7457002768BC5F00B0CEF3 /* CommentViewModel.swift */,
+				EE5FD895276B52D400BC5D5B /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -236,8 +239,8 @@
 				EE7A6D7F2763342800B1D714 /* User.swift */,
 				EE76DD782765E50500DA481A /* Post.swift */,
 				EE7456FE2768B08F00B0CEF3 /* Comment.swift */,
-				EE5CDB20276265BB0002F4EE /* Profile */,
 				EE6014FA2769F8B2008A5073 /* Notification.swift */,
+				EE5CDB20276265BB0002F4EE /* Profile */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7457012768BC5F00B0CEF3 /* CommentViewModel.swift in Sources */,
+				EE5FD896276B52D400BC5D5B /* NotificationViewModel.swift in Sources */,
 				EE76DD7B2765EDD200DA481A /* PostViewModel.swift in Sources */,
 				EE806101275FDE28007B2A95 /* CustomTextField.swift in Sources */,
 				EE7A6D8227633C4100B1D714 /* PrfileHeaderViewModel.swift in Sources */,

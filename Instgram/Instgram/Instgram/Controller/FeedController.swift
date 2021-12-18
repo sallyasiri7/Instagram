@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import simd
+
 
 private let reuseldentifier = "Cell"
 
@@ -152,6 +152,9 @@ extension FeedController: FeedCellDelegate {
         navigationController?.pushViewController(controller, animated: true)
     }
     func cell(_ cell: FeedCell, didLike post: Post) {
+        guard let tab = tabBarController as? MainTabController else { return }
+        guard let user = tab.user else { return }
+        
         cell.viewModel?.post.didLike.toggle()
         
         if post.didLike{
@@ -168,6 +171,7 @@ extension FeedController: FeedCellDelegate {
             
                 
                 NotificationService.uploadNotification(toUid: post.ownerUid,
+                                                      fromUser: user,
                                                        type: .like, post: post)
             }
             

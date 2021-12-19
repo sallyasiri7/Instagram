@@ -26,7 +26,9 @@ struct PostService {
                         "ownerImageUrl": user.profileImageUrl,
                         "ownerUsername": user.username] as [String : Any]
             
-            COLLECTION_POSTS.addDocument(data: data, completion: completion)
+           let docRef = COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            
+            self.updateUserFeedAfterPost(postId: docRef.documentID)
         }
         
     }
@@ -46,22 +48,19 @@ struct PostService {
     
     static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
         
-        let query = Firestore.firestore().collection("posts").whereField("ownerUid", isEqualTo: uid)
-        
+        let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
         
         query.getDocuments { (snapshot, error) in
-            if error != nil {
-             //   print(error?.localizedDescription)
-                return
-            }
-            
+            //            if error != nil {
+            //             //   print(error?.localizedDescription)
+            //                return
+            //            }
+            //
             guard let documents = snapshot?.documents else { return }
-           //  print("documents \(documents.count)")
+            
             
             var posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
             
-           //  print("posts \(posts.count)")
-
             posts.sort { (post1, post2) -> Bool in
                 return post1.timestamp.seconds > post2.timestamp.seconds
             }
@@ -88,11 +87,11 @@ struct PostService {
         
         COLLECTION_POSTS.document(post.postId).collection("post-likes").document(uid)
             .setData([:]) { _ in
-        COLLECTION_USERS.document(uid).collection("user-likes").document(post.postId)
+                COLLECTION_USERS.document(uid).collection("user-likes").document(post.postId)
                     .setData([:], completion: completion)
                 
             }
-
+        
         
         
     }
@@ -120,6 +119,56 @@ struct PostService {
             completion(didLike)
         }
         
+    }
+    
+    static func fetchFeedPosts(completion: @escaping([Post]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        var posts = [Post]()
+        
+        COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, error in
+            snapshot?.documents.forEach({ document in
+                fetchPost(withPostId: document.documentID) { post in
+                    posts.append(post)
+                    completion(posts)
+                }
+            })
+        }
+    }
+    
+    static func updateUserFeedAfterFollowing(user: User, didFollow: Bool) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
+        query.getDocuments { (snapshot, error) in
+            guard let documents = snapshot?.documents else { return }
+            
+            let docIDs = documents.map({ $0.documentID })
+        
+                
+        docIDs.forEach { id in
+            if didFollow {
+             COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
+            } else {
+                COLLECTION_USERS.document(uid).collection("user-feed").document(id).delete()
+            }
+          
+            }
+            
+        }
+        
+    }
+    
+    private static func updateUserFeedAfterPost(postId: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+    COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+        guard let documents = snapshot?.documents else { return }
+        
+        documents.forEach { document in
+            COLLECTION_USERS.document(document.documentID).collection("user-feed").document(postId).setData([:])
+        }
+        
+        COLLECTION_USERS.document(uid).collection("user-feed").document(postId).setData([:])
+        }
     }
 }
 

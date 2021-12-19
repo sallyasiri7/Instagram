@@ -148,9 +148,9 @@ class LoginController: UIViewController {
 extension LoginController: FormViewModel {
     func updateForm() {
         // الشفافيه
-        loginButton.backgroundColor = viewModel.buttonBackgroundColor
-        loginButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
+//        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+//        loginButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
         loginButton.isEnabled = viewModel.formIsValid
-        
+
     }
 }

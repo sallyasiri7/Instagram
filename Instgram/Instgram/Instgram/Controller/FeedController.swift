@@ -26,6 +26,7 @@ class FeedController: UICollectionViewController {
         configureUI()
         fetchPosts()
         
+        
     }
     
     //MARK: - Actions
@@ -52,12 +53,12 @@ class FeedController: UICollectionViewController {
     //MARK: - API
     
     func fetchPosts() {
-        PostService.fetchPosts { posts in
+
+        
+        PostService.fetchFeedPosts { posts in
             self.posts = posts
             self.checkIfUserLikedPosts()
             self.collectionView.refreshControl?.endRefreshing()
-            
-           
         }
     }
     

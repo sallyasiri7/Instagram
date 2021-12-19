@@ -7,8 +7,8 @@
 
 import UIKit
 
-private let cellIdontifier = "profileCell"
-private let headerIdontfier = "profileHader"
+private let cellIdentifier = "ProfileCell"
+private let headerIdentifier = "ProfileHeader"
 
 
 class ProfileController: UICollectionViewController {
@@ -36,6 +36,8 @@ class ProfileController: UICollectionViewController {
         checkIfUserIsFollowed()
         fetchUserStats()
         fetchPosts()
+        
+       
         
         
     }
@@ -76,10 +78,10 @@ class ProfileController: UICollectionViewController {
     func configureCollectionView() {
         navigationItem.title = user.username
         collectionView.backgroundColor = .white
-        collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdontifier)
+        collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: headerIdontfier)
+                                withReuseIdentifier: headerIdentifier)
         
         
         
@@ -98,14 +100,14 @@ extension ProfileController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdontifier, for: indexPath) as! ProfileCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
         cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdontfier, for: indexPath) as! ProfileHeader
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
         
         header.delegate = self
         
@@ -162,6 +164,8 @@ extension ProfileController: ProfileHeaderDelegate {
             UserService.unfollowUser(uid: user.uid) { error in
                 self.user.isFollowed = false
                 self.collectionView.reloadData()
+                
+                PostService.updateUserFeedAfterFollowing(user: user, didFollow: false)
             }
         } else {
             UserService.follow(uid: user.uid) { error in
@@ -171,6 +175,8 @@ extension ProfileController: ProfileHeaderDelegate {
                 NotificationService.uploadNotification(toUid: user.uid,
                                                        fromUser: currentUser,
                                                        type: .follow)
+                
+                PostService.updateUserFeedAfterFollowing(user: user, didFollow: true)
             }
         }
         

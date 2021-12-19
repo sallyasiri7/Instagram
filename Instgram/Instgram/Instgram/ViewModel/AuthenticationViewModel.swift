@@ -33,7 +33,7 @@ struct LoginViewMpdel: AuthenticationViewModel {
     }
     
     var buttonTitleColor: UIColor {
-        return formIsValid ? .white : UIColor(white: 1, alpha: 1)
+        return formIsValid ? .white : UIColor(white: 15, alpha: 15)
     }
     
 }

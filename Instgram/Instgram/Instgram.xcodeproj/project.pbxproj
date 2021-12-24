@@ -39,6 +39,7 @@
 		EE76DD772765CC2900DA481A /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76DD762765CC2900DA481A /* PostService.swift */; };
 		EE76DD792765E50500DA481A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76DD782765E50500DA481A /* Post.swift */; };
 		EE76DD7B2765EDD200DA481A /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76DD7A2765EDD200DA481A /* PostViewModel.swift */; };
+		EE793B7A277057850084CC0C /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE793B79277057850084CC0C /* ResetPasswordController.swift */; };
 		EE7A6D7C27632BDA00B1D714 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A6D7B27632BDA00B1D714 /* UserService.swift */; };
 		EE7A6D7E27632C4E00B1D714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A6D7D27632C4E00B1D714 /* Constants.swift */; };
 		EE7A6D802763342800B1D714 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A6D7F2763342800B1D714 /* User.swift */; };
@@ -92,6 +93,7 @@
 		EE76DD762765CC2900DA481A /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		EE76DD782765E50500DA481A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		EE76DD7A2765EDD200DA481A /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		EE793B79277057850084CC0C /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		EE7A6D7B27632BDA00B1D714 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EE7A6D7D27632C4E00B1D714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EE7A6D7F2763342800B1D714 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			children = (
 				EE8060FC275FC580007B2A95 /* LoginController.swift */,
 				EE8060FE275FC5DD007B2A95 /* RegistrationController.swift */,
+				EE793B79277057850084CC0C /* ResetPasswordController.swift */,
 			);
 			path = Antifkishan;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				EE4FC8A6275E16F30002ED89 /* SearchController.swift in Sources */,
 				EE80BA0A27651EE3009F4C07 /* InputTextView.swift in Sources */,
 				EE7A6D7E27632C4E00B1D714 /* Constants.swift in Sources */,
+				EE793B7A277057850084CC0C /* ResetPasswordController.swift in Sources */,
 				EE4FC888275DE3920002ED89 /* AppDelegate.swift in Sources */,
 				EE621D222763A7840060196B /* UserCellViewModel.swift in Sources */,
 				EE4FC8AC275E182C0002ED89 /* ProfileController.swift in Sources */,

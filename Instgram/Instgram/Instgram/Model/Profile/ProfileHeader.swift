@@ -19,7 +19,7 @@ class ProfileHeader: UICollectionReusableView {
     //MARK: - Properties
     
     var viewModel: ProfileHeaderViewModel? {
-        didSet { configure()}
+        didSet { configure() }
     }
     
     

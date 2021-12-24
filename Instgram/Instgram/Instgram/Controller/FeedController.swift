@@ -16,16 +16,23 @@ class FeedController: UICollectionViewController {
     //MARK: - Lifecycle
     
     private var posts = [Post]() {
+        
         didSet {collectionView.reloadData() }
     }
     
-    var post: Post?
+    var post: Post? {
+        didSet { collectionView.reloadData() }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         fetchPosts()
         
+        if post != nil {
+            checkIfUserLikedPosts()
+        }
         
     }
     
@@ -54,6 +61,7 @@ class FeedController: UICollectionViewController {
     
     func fetchPosts() {
 
+        guard post == nil else { return }
         
         PostService.fetchFeedPosts { posts in
             self.posts = posts
@@ -63,27 +71,35 @@ class FeedController: UICollectionViewController {
     }
     
     func checkIfUserLikedPosts() {
-        self.posts.forEach { post in
+        if let post = post {
             PostService.checkIfUserLikedPost(post: post) { didLike in
-                if let index = self.posts.firstIndex(where: { $0.postId == post.postId}) {
-                    self.posts[index].didLike = didLike
+                self.post?.didLike = didLike
+                
+            }
+        }else {
+            
+            posts.forEach { post in
+                PostService.checkIfUserLikedPost(post: post) { didLike in
+                    if let index = self.posts.firstIndex(where: { $0.postId == post.postId}) {
+                        self.posts[index].didLike = didLike
+                    }
                 }
             }
+            
         }
     }
     
     //MARK: - Helpers
     
     func configureUI() {
-        guard post == nil else { return
-            
-        }
+      //  guard post == nil else { return }
+        
         collectionView.backgroundColor = .white
+        
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseldentifier)
         
         
         if post == nil {
-            
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
                                                                style: .plain,
                                                                target: self,
@@ -112,6 +128,7 @@ extension FeedController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseldentifier, for: indexPath) as! FeedCell
+        
         cell.delegate = self
         
         if let post = post {

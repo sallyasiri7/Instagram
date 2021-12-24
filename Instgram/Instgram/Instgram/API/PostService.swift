@@ -47,23 +47,16 @@ struct PostService {
     //هذا الي يطلع الصور بالصفحه حقتي
     
     static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
-        
+     
         let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
         
         query.getDocuments { (snapshot, error) in
-            //            if error != nil {
-            //             //   print(error?.localizedDescription)
-            //                return
-            //            }
-            //
             guard let documents = snapshot?.documents else { return }
             
             
             var posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
-            
-            posts.sort { (post1, post2) -> Bool in
-                return post1.timestamp.seconds > post2.timestamp.seconds
-            }
+
+            posts.sort(by: {$0.timestamp.seconds > $1.timestamp.seconds })
             
             completion(posts)
             
@@ -129,6 +122,9 @@ struct PostService {
             snapshot?.documents.forEach({ document in
                 fetchPost(withPostId: document.documentID) { post in
                     posts.append(post)
+                    
+                    posts.sort(by: {$0.timestamp.seconds > $1.timestamp.seconds })
+                    
                     completion(posts)
                 }
             })
@@ -137,13 +133,13 @@ struct PostService {
     
     static func updateUserFeedAfterFollowing(user: User, didFollow: Bool) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        
         let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
         query.getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else { return }
             
             let docIDs = documents.map({ $0.documentID })
-        
-                
+            
         docIDs.forEach { id in
             if didFollow {
              COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])

@@ -37,9 +37,6 @@ class ProfileController: UICollectionViewController {
         fetchUserStats()
         fetchPosts()
         
-       
-        
-        
     }
     
     //MARK: - API
@@ -89,7 +86,7 @@ class ProfileController: UICollectionViewController {
     }
 }
 
-//MARKT: - UICollectionViewDataSource
+//MARK: - UICollectionViewDataSource
 
 extension ProfileController {
     
@@ -120,10 +117,11 @@ extension ProfileController {
     
 }
 
-//MARKT: - UICollectionViewDelegate
+//MARK: - UICollectionViewDelegate //يطلع الصوره بصفحتي
 
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let  controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         controller.post = posts[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
@@ -131,7 +129,7 @@ extension ProfileController {
     
 }
 
-//MARKT: - UICollectionViewDelegateFlowLayout
+//MARK: - UICollectionViewDelegateFlowLayout
 
 extension ProfileController: UICollectionViewDelegateFlowLayout {
     

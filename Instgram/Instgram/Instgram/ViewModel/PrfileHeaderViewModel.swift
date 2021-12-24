@@ -43,7 +43,7 @@ struct ProfileHeaderViewModel {
     }
     
     var numberOfFollowing: NSAttributedString {
-        return attributedStatText(value: user.stats.folloeing, label: "following")
+        return attributedStatText(value: user.stats.following, label: "following")
 
         
     }

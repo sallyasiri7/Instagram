@@ -113,13 +113,14 @@ class FeedCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         backgroundColor = .white
         
    //هنا الصوره الدائريه الصغيره
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor,
-                                paddingTop: 130, pddingLeft: 12)
+                                paddingTop: 12, pddingLeft: 12)
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40 / 2
         
@@ -128,7 +129,7 @@ class FeedCell: UICollectionViewCell {
                                leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         
         addSubview(postImageView)
-        postImageView.anchor(top: postImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
+        postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
         
         postImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
         

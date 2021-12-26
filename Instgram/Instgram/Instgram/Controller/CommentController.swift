@@ -70,9 +70,10 @@ class CommentController: UICollectionViewController {
     //MARK: - Helpers
     
     func configureCollectionView() {
-        navigationItem.title = "Comments"
-        collectionView.backgroundColor = .white
         
+    navigationItem.title = NSLocalizedString("Comments", comment: "Comments")
+        
+        collectionView.backgroundColor = .white
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.alwaysBounceVertical = true
         collectionView.keyboardDismissMode = .interactive

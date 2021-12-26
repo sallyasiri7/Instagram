@@ -114,7 +114,7 @@ class FeedCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "Dark")
         
    //هنا الصوره الدائريه الصغيره
         

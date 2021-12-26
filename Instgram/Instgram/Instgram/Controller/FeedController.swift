@@ -34,6 +34,8 @@ class FeedController: UICollectionViewController {
             checkIfUserLikedPosts()
         }
         
+        view.backgroundColor = UIColor(named: "Dark")
+        
     }
     
     //MARK: - Actions
@@ -100,13 +102,15 @@ class FeedController: UICollectionViewController {
         
         
         if post == nil {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Logout", comment: "Logout"),
                                                                style: .plain,
                                                                target: self,
                                                                action: #selector(handleLogout))
         }
         
-        navigationItem.title = "Feed"
+       
+        navigationItem.title = NSLocalizedString("Feed", comment: "Feed")
+
         
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)

@@ -67,7 +67,8 @@ class SearchController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
-        navigationItem.title = "Explore"
+        navigationItem.title = NSLocalizedString("Explore", comment: "Explore")
+        
         tableView.delegate = self
         tableView.dataSource = self
         

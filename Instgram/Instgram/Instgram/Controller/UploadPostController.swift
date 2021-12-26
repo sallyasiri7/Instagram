@@ -95,14 +95,14 @@ class UploadPostController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
-        navigationItem.title = "Upload post"
+        navigationItem.title = NSLocalizedString("Upload post", comment: "Upload post")
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                            target: self,
                                                            action: #selector(didTapCancel))
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .done,                                         target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Share", comment: "Share"), style: .done,                                         target: self, action: #selector(didTapDone))
         
         
         view.addSubview(photoImageView)

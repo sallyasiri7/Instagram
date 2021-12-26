@@ -12,6 +12,8 @@ class CustomTextField: UITextField {
      init(placeholder: String) {
          super.init(frame: .zero)
          
+         backgroundColor = UIColor(named: "Dark")
+         
          let spacer = UIView()
          spacer.setDimensions(height: 50, width: 12)
          leftView = spacer

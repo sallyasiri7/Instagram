@@ -45,6 +45,8 @@ class UserCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        backgroundColor = UIColor(named: "Dark")
+        
         addSubview(profileImageView)
         profileImageView.setDimensions(height: 48, width: 48)
         profileImageView.layer.cornerRadius = 48 / 2

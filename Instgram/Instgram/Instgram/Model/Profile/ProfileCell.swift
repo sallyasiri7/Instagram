@@ -30,7 +30,8 @@ class ProfileCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .lightGray
+       backgroundColor = UIColor(named: "Dark")
+
         
         addSubview(postImageView)
         postImageView.fillSuperview()
@@ -38,6 +39,8 @@ class ProfileCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
+       // backgroundColor = UIColor(named: "Dark")
     }
     
     func configure() {

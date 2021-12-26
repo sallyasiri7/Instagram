@@ -37,6 +37,9 @@ class ProfileController: UICollectionViewController {
         fetchUserStats()
         fetchPosts()
         
+        view.backgroundColor = UIColor(named: "Dark")
+
+        
     }
     
     //MARK: - API
@@ -74,6 +77,7 @@ class ProfileController: UICollectionViewController {
     
     func configureCollectionView() {
         navigationItem.title = user.username
+        
         collectionView.backgroundColor = .white
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self,

@@ -42,7 +42,7 @@ class RegistrationController: UIViewController {
     
     private let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle(NSLocalizedString("Sign Up", comment: "Sign Up"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemPurple.withAlphaComponent(0.5)
         button.layer.cornerRadius = 5

@@ -74,6 +74,7 @@ class NotificationCell: UITableViewCell {
         
         selectionStyle = .none
         
+        backgroundColor = UIColor(named: "Dark")
         
         addSubview(profileImageView)
         profileImageView.setDimensions(height: 48, width: 48)

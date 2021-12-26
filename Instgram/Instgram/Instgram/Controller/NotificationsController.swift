@@ -63,7 +63,7 @@ class NotificationsController: UITableViewController {
     
     func configureTableView() {
         view.backgroundColor = .white
-        navigationItem.title = "Notifications"
+        navigationItem.title = NSLocalizedString("Notifications", comment: "Notifications")
         
         tableView.register(NotificationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 80

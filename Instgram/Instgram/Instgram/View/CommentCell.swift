@@ -34,6 +34,8 @@ class CommentCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = UIColor(named: "Dark")
+        
         addSubview(profileImageView)
         profileImageView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 8)
         profileImageView.setDimensions(height: 40, width: 40)

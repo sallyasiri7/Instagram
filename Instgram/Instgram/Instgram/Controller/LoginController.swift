@@ -41,7 +41,7 @@ class LoginController: UIViewController {
     
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Log in", for: .normal)
+        button.setTitle(NSLocalizedString("Log in", comment: "Log in"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemPurple.withAlphaComponent(0.5)
         button.layer.cornerRadius = 5

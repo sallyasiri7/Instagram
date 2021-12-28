@@ -16,10 +16,10 @@ class MainTabController: UITabBarController {
     
     //MARK: - Lifecycle
     
-     var user: User? {
+    var user: User? {
         didSet {
             guard let user = user else { return }
-        
+            
             configureViewControllers(withUser: user)
             
         }
@@ -29,7 +29,7 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
         fetchUser()
-     
+        
         
     }
     
@@ -38,10 +38,10 @@ class MainTabController: UITabBarController {
     
     func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-            UserService.fetchUser(withUid: uid) { user in
+        UserService.fetchUser(withUid: uid) { user in
             self.user = user
-          
-           
+            
+            
         }
     }
     
@@ -50,7 +50,7 @@ class MainTabController: UITabBarController {
             DispatchQueue.main.async {
                 let controller = LoginController()
                 controller.delegate = self
-                  let nav = UINavigationController(rootViewController: controller)
+                let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
             }

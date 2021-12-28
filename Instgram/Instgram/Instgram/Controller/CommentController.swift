@@ -71,7 +71,7 @@ class CommentController: UICollectionViewController {
     
     func configureCollectionView() {
         
-    navigationItem.title = NSLocalizedString("Comments", comment: "Comments")
+        navigationItem.title = NSLocalizedString("Comments", comment: "Comments")
         
         collectionView.backgroundColor = .white
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: reuseIdentifier)

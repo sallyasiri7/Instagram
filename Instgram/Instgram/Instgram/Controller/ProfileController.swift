@@ -14,7 +14,7 @@ private let headerIdentifier = "ProfileHeader"
 class ProfileController: UICollectionViewController {
     
     //MARK: - Properties
-    
+    //*
     private var user: User
     private var posts = [Post]()
     
@@ -38,7 +38,7 @@ class ProfileController: UICollectionViewController {
         fetchPosts()
         
         view.backgroundColor = UIColor(named: "Dark")
-
+        
         
     }
     

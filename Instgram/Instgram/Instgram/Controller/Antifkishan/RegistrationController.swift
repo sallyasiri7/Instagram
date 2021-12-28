@@ -25,20 +25,20 @@ class RegistrationController: UIViewController {
     }()
     
     private let emailTextField: CustomTextField = {
-        let tf = CustomTextField(placeholder: "Email")
+        let tf = CustomTextField(placeholder: (NSLocalizedString("Email", comment: "Email")))
         tf.keyboardType = .emailAddress
         return tf
     }()
     
     private let passwordTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "password")
+        let tf = CustomTextField(placeholder: (NSLocalizedString("password", comment: "password")))
         
         tf.isSecureTextEntry = true
         return tf
     }()
     
-    private let fullnameTextField = CustomTextField(placeholder: "Fullname")
-    private let usernameTextField = CustomTextField(placeholder: "Username")
+    private let fullnameTextField = CustomTextField(placeholder: (NSLocalizedString("Fullname", comment: "Fullname")))
+    private let usernameTextField = CustomTextField(placeholder: (NSLocalizedString("Username", comment: "Username")))
     
     private let signUpButton: UIButton = {
         let button = UIButton(type: .system)
@@ -54,7 +54,7 @@ class RegistrationController: UIViewController {
     
     private let alreadyHaveAccuntButton: UIButton = {
         let button = UIButton(type: .system)
-        button.attributedTitle(firstPart: "Already have an account?", secondPart: "Sign Up")
+        button.attributedTitle(firstPart: (NSLocalizedString("Already have an account?", comment: "Already have an account?")), secondPart: (NSLocalizedString("Sign Up", comment: "Sign Up")))
         button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         return button
     }()

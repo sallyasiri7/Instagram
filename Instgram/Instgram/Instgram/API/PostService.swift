@@ -26,7 +26,7 @@ struct PostService {
                         "ownerImageUrl": user.profileImageUrl,
                         "ownerUsername": user.username] as [String : Any]
             
-           let docRef = COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            let docRef = COLLECTION_POSTS.addDocument(data: data, completion: completion)
             
             self.updateUserFeedAfterPost(postId: docRef.documentID)
         }
@@ -47,7 +47,7 @@ struct PostService {
     //هذا الي يطلع الصور بالصفحه حقتي
     
     static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
-     
+        
         let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
         
         query.getDocuments { (snapshot, error) in
@@ -55,7 +55,7 @@ struct PostService {
             
             
             var posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
-
+            
             posts.sort(by: {$0.timestamp.seconds > $1.timestamp.seconds })
             
             completion(posts)
@@ -140,13 +140,13 @@ struct PostService {
             
             let docIDs = documents.map({ $0.documentID })
             
-        docIDs.forEach { id in
-            if didFollow {
-             COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
-            } else {
-                COLLECTION_USERS.document(uid).collection("user-feed").document(id).delete()
-            }
-          
+            docIDs.forEach { id in
+                if didFollow {
+                    COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
+                } else {
+                    COLLECTION_USERS.document(uid).collection("user-feed").document(id).delete()
+                }
+                
             }
             
         }
@@ -156,14 +156,14 @@ struct PostService {
     private static func updateUserFeedAfterPost(postId: String) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-    COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
-        guard let documents = snapshot?.documents else { return }
-        
-        documents.forEach { document in
-            COLLECTION_USERS.document(document.documentID).collection("user-feed").document(postId).setData([:])
-        }
-        
-        COLLECTION_USERS.document(uid).collection("user-feed").document(postId).setData([:])
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            
+            documents.forEach { document in
+                COLLECTION_USERS.document(document.documentID).collection("user-feed").document(postId).setData([:])
+            }
+            
+            COLLECTION_USERS.document(uid).collection("user-feed").document(postId).setData([:])
         }
     }
 }

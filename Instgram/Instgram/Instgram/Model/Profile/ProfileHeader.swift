@@ -162,8 +162,6 @@ class ProfileHeader: UICollectionReusableView {
     func configure() {
         guard let viewModel = viewModel else { return }
         
-        
-        
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         

@@ -62,7 +62,7 @@ class FeedController: UICollectionViewController {
     //MARK: - API
     
     func fetchPosts() {
-
+        
         guard post == nil else { return }
         
         PostService.fetchFeedPosts { posts in
@@ -94,7 +94,7 @@ class FeedController: UICollectionViewController {
     //MARK: - Helpers
     
     func configureUI() {
-      //  guard post == nil else { return }
+        //  guard post == nil else { return }
         
         collectionView.backgroundColor = .white
         
@@ -108,9 +108,9 @@ class FeedController: UICollectionViewController {
                                                                action: #selector(handleLogout))
         }
         
-       
+        
         navigationItem.title = NSLocalizedString("Feed", comment: "Feed")
-
+        
         
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
@@ -128,7 +128,7 @@ extension FeedController {
     }
     
     //صور البروفايل
-    
+    //*
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseldentifier, for: indexPath) as! FeedCell
@@ -187,13 +187,13 @@ extension FeedController: FeedCellDelegate {
             }
         }else {
             PostService.likePost(post: post) { _ in
-                    cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
-                    cell.likeButton.tintColor = .red
+                cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
+                cell.likeButton.tintColor = .red
                 cell.viewModel?.post.likes = post.likes + 1
-            
+                
                 
                 NotificationService.uploadNotification(toUid: post.ownerUid,
-                                                      fromUser: user,
+                                                       fromUser: user,
                                                        type: .like, post: post)
             }
             

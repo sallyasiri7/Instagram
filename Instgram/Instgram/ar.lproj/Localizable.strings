@@ -15,3 +15,21 @@
 "Feed" = "الرئيسيه";
 "Logout" = "تسجيل خروج";
 "Share" = "بحث";
+"My Profile" = "ملفي الشخصي";
+"Search" = "بحث";
+"Don`t have an account?" = "ليس لديك حساب؟";
+"Sign Up" = "اشترك";
+"Forgot your password?" = "نسيت كلمة المرور؟";
+"Get help signing in." = "احصل على مساعدة في تسجيل الدخول.";
+"Email" = "الإيميل";
+"password" = "كلمة السر";
+"Already have an account?" = "هل لديك حساب؟";
+"Sign Up" = "اشترك";
+"Email" = "الإيميل";
+"password" = "كلمة السر";
+"Fullname" = "الاسم الكامل";
+"Username" = "اسم المستخدم";
+"Success" = "نجاح";
+"We sent a link to your email to reset your password" = "لقد أرسلنا رابطًا إلى بريدك الإلكتروني لإعادة تعيين كلمة مرورك";
+"Email" = "الإيميل";
+

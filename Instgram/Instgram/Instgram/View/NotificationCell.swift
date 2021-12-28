@@ -94,7 +94,7 @@ class NotificationCell: UITableViewCell {
                           leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         infoLabel.anchor(right: followButton.leftAnchor, paddingRight: 4)
         
-    
+        
         
     }
     
@@ -107,12 +107,12 @@ class NotificationCell: UITableViewCell {
     
     @objc func handleFollowTapped() {
         guard let viewModel = viewModel else { return }
-
+        
         if viewModel.notification.userIsFollowed {
             delegate?.cell(self, wantsToUnfollow: viewModel.notification.uid)
         } else {
             delegate?.cell(self, wantsToFollow: viewModel.notification.uid)
-    }
+        }
     }
     
     @objc func handlePostTapped() {
@@ -126,7 +126,8 @@ class NotificationCell: UITableViewCell {
     func configure() {
         guard let viewModel = viewModel else { return }
         
-        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        profileImageView.sd_setImage(with:  viewModel.profileImageUrl)
+        // print("234234234234  \(viewModel.profileImageUrl)")
         postImageView.sd_setImage(with: viewModel.postImageUrl)
         
         infoLabel.attributedText = viewModel.notificationMessage

@@ -13,7 +13,7 @@ struct CommentViewModel {
     
     var profileImageUrl: URL? { return URL(string: comment.profileImageUrl) }
     
-
+    
     
     init(comment: Comment) {
         self.comment = comment

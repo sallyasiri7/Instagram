@@ -20,7 +20,7 @@ struct NotificationService {
                                    "uid": fromUser.uid,
                                    "type": type.rawValue,
                                    "id": docRef.documentID,
-                                   "userPrifileImageUrl": fromUser.profileImageUrl,
+                                   "userProfileImageUrl": fromUser.profileImageUrl,
                                    "username": fromUser.username]
         
         if let post = post {
@@ -28,7 +28,7 @@ struct NotificationService {
             data["postImageUrl"] = post.imageUrl
         }
         
-       docRef.setData(data)
+        docRef.setData(data)
         
     }
     
@@ -36,15 +36,14 @@ struct NotificationService {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         
-       
         let query =  COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications")
             .order(by: "timestamp", descending: true)
         
             .getDocuments { snapahot, _ in
-            guard let documents = snapahot?.documents else { return }
-            let notifications = documents.map({ Notification(dictionary: $0.data()) })
-            completion(notifications)
-        }
+                guard let documents = snapahot?.documents else { return }
+                let notifications = documents.map({ Notification(dictionary: $0.data()) })
+                completion(notifications)
+            }
         
     }
 }

@@ -13,7 +13,7 @@ class UserCell: UITableViewCell {
     
     var viewModel: UserCellViewModel? {
         didSet { configure() }
-      
+        
     }
     
     private let profileImageView: UIImageView = {

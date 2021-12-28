@@ -21,7 +21,7 @@ extension UIViewController {
     func showLoader(_ show: Bool) {
         view.endEditing(true)
         
-            if show {
+        if show {
             UIViewController.hud.show(in: view)
         } else {
             UIViewController.hud.dismiss()
@@ -84,7 +84,7 @@ extension UIView {
         
         if let width = width {
             widthAnchor.constraint(equalToConstant: width).isActive = true
-        
+            
         }
         
         if let height = height {
@@ -105,7 +105,7 @@ extension UIView {
     }
     
     func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
-         paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
+                 paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
         

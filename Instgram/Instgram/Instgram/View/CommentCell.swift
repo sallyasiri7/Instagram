@@ -26,8 +26,8 @@ class CommentCell: UICollectionViewCell {
     }()
     
     private let commentLabel = UILabel()
-   
-   
+    
+    
     
     //MARK: - Lifecycle
     

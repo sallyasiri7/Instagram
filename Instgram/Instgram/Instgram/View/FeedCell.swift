@@ -107,7 +107,7 @@ class FeedCell: UICollectionViewCell {
     }()
     
     private var stackView = UIStackView()
-
+    
     
     // MARK: - Lifecycle
     
@@ -116,7 +116,7 @@ class FeedCell: UICollectionViewCell {
         
         backgroundColor = UIColor(named: "Dark")
         
-   //هنا الصوره الدائريه الصغيره
+        //هنا الصوره الدائريه الصغيره
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor,
@@ -125,7 +125,7 @@ class FeedCell: UICollectionViewCell {
         profileImageView.layer.cornerRadius = 40 / 2
         
         addSubview(usernameButton)
-         usernameButton.centerY(inView: profileImageView,
+        usernameButton.centerY(inView: profileImageView,
                                leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         
         addSubview(postImageView)
@@ -156,27 +156,27 @@ class FeedCell: UICollectionViewCell {
         
         guard let viewModel = viewModel else { return}
         delegate?.cell(self, wantsToShowProfileFor: viewModel.post.ownerUid)
-
+        
     }
     
     // كومنت
     @objc func didTapComments() {
         guard let viewModel = viewModel else { return }
-
+        
         delegate?.cell(self, wantsToShowCommentsFor: viewModel.post)
     }
     
     @objc func didTapLike() {
         guard let viewModel = viewModel else { return }
         delegate?.cell(self, didLike: viewModel.post)
-
+        
     }
     
     //MARK: - Helpers
     
     func configure() {
         guard let viewModel = viewModel else { return }
-    
+        
         captionLabel.text = viewModel.caption
         postImageView.sd_setImage(with: viewModel.imageUrl)
         
@@ -192,7 +192,7 @@ class FeedCell: UICollectionViewCell {
     }
     
     func configureActionButtons() {
-       let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
+        let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         

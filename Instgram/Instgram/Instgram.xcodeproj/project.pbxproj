@@ -211,7 +211,6 @@
 				EE4FC8AB275E182C0002ED89 /* ProfileController.swift */,
 				EE80BA0727651743009F4C07 /* UploadPostController.swift */,
 				EE5DB561276737C400F8A740 /* CommentController.swift */,
-				EE8060FC275FC580007B2A95 /* LoginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,6 +265,7 @@
 		EE8060FB275FC489007B2A95 /* Antifkishan */ = {
 			isa = PBXGroup;
 			children = (
+				EE8060FC275FC580007B2A95 /* LoginController.swift */,
 				EE8060FE275FC5DD007B2A95 /* RegistrationController.swift */,
 				EE793B79277057850084CC0C /* ResetPasswordController.swift */,
 			);

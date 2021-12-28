@@ -100,7 +100,7 @@ extension NotificationsController {
             
             let controller = ProfileController(user: user)
             self.navigationController?.pushViewController(controller, animated: true)
-           
+            
         }
         
     }
@@ -126,7 +126,7 @@ extension NotificationsController: NotificationCellDelegate {
             self.showLoader(false)
             cell.viewModel?.notification.userIsFollowed.toggle()
         }
-
+        
     }
     
     func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {

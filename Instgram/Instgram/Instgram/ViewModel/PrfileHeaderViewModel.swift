@@ -23,10 +23,10 @@ struct ProfileHeaderViewModel {
     var followButtonText: String {
         if user.isCurrentUser {
             
-        return "Edit Profile"
-    }
+            return (NSLocalizedString("My Profile", comment: "My Profile"))
+        }
         return user.isFollowed ? "Following" : "Follow"
-}
+    }
     
     var followButtonBackgroundColor: UIColor {
         return user.isCurrentUser ? .white : .systemBlue
@@ -44,7 +44,7 @@ struct ProfileHeaderViewModel {
     
     var numberOfFollowing: NSAttributedString {
         return attributedStatText(value: user.stats.following, label: "following")
-
+        
         
     }
     
@@ -61,5 +61,5 @@ struct ProfileHeaderViewModel {
         attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
         return attributedText
     }
-
+    
 }

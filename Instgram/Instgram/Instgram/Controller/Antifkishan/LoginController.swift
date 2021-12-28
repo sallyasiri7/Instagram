@@ -27,13 +27,13 @@ class LoginController: UIViewController {
     }()
     
     private let emailTextField: CustomTextField = {
-        let tf = CustomTextField(placeholder: "Email")
+        let tf = CustomTextField(placeholder: (NSLocalizedString("Email", comment: "Email")))
         tf.keyboardType = .emailAddress
         return tf
     }()
     
     private let passwordTextField: UITextField = {
-        let tf = CustomTextField(placeholder: "password")
+        let tf = CustomTextField(placeholder: (NSLocalizedString("password", comment: "password")))
         
         tf.isSecureTextEntry = true
         return tf
@@ -55,15 +55,15 @@ class LoginController: UIViewController {
     
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
-    button.attributedTitle(firstPart: "Forgot your password?", secondPart: "Get help signing in.")
-    button.addTarget(self, action: #selector(handleShowResetPassword), for: .touchUpInside)
+        button.attributedTitle(firstPart:  (NSLocalizedString("Forgot your password?", comment: "Forgot your password?")), secondPart: (NSLocalizedString( "Get help signing in.", comment:  "Get help signing in.")))
+        button.addTarget(self, action: #selector(handleShowResetPassword), for: .touchUpInside)
         return button
     }()
     
     
     private let dontHaveAccuntButton: UIButton = {
         let button = UIButton(type: .system)
-        button.attributedTitle(firstPart: "Don`t have an account?", secondPart: "Sign Up")
+        button.attributedTitle(firstPart: (NSLocalizedString("Don`t have an account?", comment: "Don`t have an account?")), secondPart: (NSLocalizedString("Sign Up", comment: "Sign Up")) )
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
@@ -91,7 +91,7 @@ class LoginController: UIViewController {
                 return
             }
             self.delegate?.authenticationDidComplete()
-          
+            
         }
         
     }
@@ -157,10 +157,10 @@ class LoginController: UIViewController {
 extension LoginController: FormViewModel {
     func updateForm() {
         // الشفافيه
-//        loginButton.backgroundColor = viewModel.buttonBackgroundColor
-//        loginButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
+        //        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        //        loginButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
         loginButton.isEnabled = viewModel.formIsValid
-
+        
     }
 }
 
@@ -169,7 +169,7 @@ extension LoginController: FormViewModel {
 extension LoginController: ResetPasswordControllerDelegate {
     func controllerDidSendResetPasswordLink(_ controller: ResetPasswordController) {
         navigationController?.popViewController(animated: true)
-        showMessage(withTitle: "Success",
-                    message: "We sent a link to your email to reset your password")
+        showMessage(withTitle: (NSLocalizedString("Success", comment: "Success")),
+                    message: (NSLocalizedString("We sent a link to your email to reset your password", comment: "We sent a link to your email to reset your password")))
     }
 }

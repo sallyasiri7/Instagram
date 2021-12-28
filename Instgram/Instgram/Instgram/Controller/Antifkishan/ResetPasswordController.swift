@@ -15,7 +15,7 @@ class ResetPasswordController: UIViewController {
     
     //MARK: - Properties
     
-    private let emailTextField = CustomTextField(placeholder: "Email")
+    private let emailTextField = CustomTextField(placeholder: (NSLocalizedString("Email", comment: "Email")))
     private var viewModel = ResetPasswordViewModel()
     weak var delegate:ResetPasswordControllerDelegate?
     var email: String?
@@ -25,7 +25,7 @@ class ResetPasswordController: UIViewController {
         iv.contentMode = .scaleAspectFill
         return iv
     }()
-
+    
     
     private let resetPasswordButton: UIButton = {
         let button = UIButton(type: .system)
@@ -87,7 +87,7 @@ class ResetPasswordController: UIViewController {
     
     func configureUI() {
         configureGradientLayer()
-
+        
         emailTextField.text = email
         viewModel.email = email
         updateForm()
@@ -112,13 +112,13 @@ class ResetPasswordController: UIViewController {
 }
 
 //MARK: - FormViewModel
-extension ResetPasswordController: FormViewModel {
-    func updateForm() {
+         extension ResetPasswordController: FormViewModel {
+             func updateForm() {
         // الشفافيه
-//        resetPasswordButton.backgroundColor = viewModel.buttonBackgroundColor
-//        resetPasswordButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
+        //        resetPasswordButton.backgroundColor = viewModel.buttonBackgroundColor
+        //        resetPasswordButton.setTitleColor(viewModel.buttonBackgroundColor, for: .normal)
         resetPasswordButton.isEnabled = viewModel.formIsValid
-
+        
     }
 }
 

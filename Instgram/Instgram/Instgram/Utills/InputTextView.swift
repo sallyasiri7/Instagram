@@ -17,7 +17,7 @@ class InputTextView: UITextView {
         didSet { placeholderLabel.text = placeholderText}
     }
     
-      let placeholderLabel: UILabel = {
+    let placeholderLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
         return label
@@ -42,7 +42,7 @@ class InputTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         
         addSubview(placeholderLabel)
-       
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidChange), name: UITextView.textDidChangeNotification, object: nil)
     }

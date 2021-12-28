@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FormViewModel {
-     
+    
     func updateForm()
 }
 
@@ -39,7 +39,7 @@ struct LoginViewMpdel: AuthenticationViewModel {
 }
 
 struct RegistrationViewModel: AuthenticationViewModel {
- 
+    
     var email: String?
     var password: String?
     var fullname: String?

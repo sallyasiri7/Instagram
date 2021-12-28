@@ -89,7 +89,7 @@ class SearchController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = (NSLocalizedString("Search", comment: "Search"))
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = false
@@ -104,7 +104,7 @@ extension SearchController: UITableViewDataSource {
         return inSearchMode ? filteredUsers.count : users.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdontifier, for: indexPath) as! UserCell
         
         let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
@@ -118,7 +118,7 @@ extension SearchController: UITableViewDataSource {
 //الفنكشن ادخل على حسابات الاشخاص من السيرش
 extension SearchController: UITableViewDelegate {
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
         let controller = ProfileController(user: users[indexPath.row])
         navigationController?.pushViewController(controller, animated: true)
@@ -153,7 +153,7 @@ extension SearchController: UISearchResultsUpdating {
         
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
         filteredUsers = users.filter({
-            $0.username.contains(searchText) ||
+            $0.username.contains(searchText) || 
             $0.fullname.lowercased().contains(searchText)
             
         })
@@ -169,12 +169,12 @@ extension SearchController: UICollectionViewDataSource {
         posts.count
     }
     
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellIdentifier, for: indexPath) as! ProfileCell
-       cell.viewModel = PostViewModel(post: posts[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellIdentifier, for: indexPath) as! ProfileCell
+        cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
-
+    
 }
 
 //MARK: - UICollectionViewDelegate
@@ -182,11 +182,11 @@ let cell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellIdent
 extension SearchController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-       let  controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
-       controller.post = posts[indexPath.row]
-       navigationController?.pushViewController(controller, animated: true)
-   }
+        
+        let  controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+        controller.post = posts[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     
 }

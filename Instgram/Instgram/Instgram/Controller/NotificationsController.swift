@@ -39,6 +39,8 @@ class NotificationsController: UITableViewController {
         }
     }
     
+    //التحقق من اليوزر اذا عمل له فولو او لا 
+    
     func checkIfUserIsFollowed() {
         
         notifications.forEach { notification in

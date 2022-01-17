@@ -153,7 +153,7 @@ extension SearchController: UISearchResultsUpdating {
         
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
         filteredUsers = users.filter({
-            $0.username.contains(searchText) || 
+            $0.username.contains(searchText) ||
             $0.fullname.lowercased().contains(searchText)
             
         })

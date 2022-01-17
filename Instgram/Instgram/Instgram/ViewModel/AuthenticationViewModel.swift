@@ -26,7 +26,7 @@ struct LoginViewMpdel: AuthenticationViewModel {
     var formIsValid: Bool {
         return email?.isEmpty == false && password?.isEmpty == false
     }
-    // الشفافيه 
+    // الشفافيه
     var buttonBackgroundColor: UIColor {
         return formIsValid  ? .systemBlue : .systemPurple.withAlphaComponent(0.5)
         

@@ -101,10 +101,10 @@ Instagram brings you closer to the community and the things you love and connect
 
 ## GitHub Rebo
 
-https://github.com/sallyasiri7/tuwaiq-10-solo.git
+https://github.com/sallyasiri7/Instagram.git
 
 ## Slides :
 
 ## My presentation:
 
-https://docs.google.com/presentation/d/1q7JiYl7E5g2T12Sjb9yEN2U_yGas7RHN/edit?usp=sharing&ouid=109454159627504352191&rtpof=true&sd=true
+https://docs.google.com/presentation/d/1q7JiYl7E5g2T12Sjb9yEN2U_yGas7RHN/edit#slide=id.p1
